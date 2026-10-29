@@ -4,11 +4,9 @@ var util = require("util");
 var cssParse = require("css-parse");
 var cssStringify = require("css-stringify");
 
-var parseString = require("plist").parseString;
+var parse = require("plist").parse;
 function parseTheme(themeXml, callback) {
-    parseString(themeXml, function(_, theme) {
-        callback(theme[0])
-    });
+    callback(parse(themeXml));
 }
 
 var unsupportedScopes = { };
@@ -290,6 +288,8 @@ var themes = {
     "solarized_light": "Solarized-light",
     "katzenmilch": "Katzenmilch",
     "kuroir": "Kuroir Theme",
+    "gruvbox_dark_hard": "gruvboxDarkHard",
+    "gruvbox_light_hard": "gruvboxLightHard",
     //"textmate": "Textmate (Mac Classic)",
     "tomorrow": "Tomorrow",
     "tomorrow_night": "Tomorrow-Night",
